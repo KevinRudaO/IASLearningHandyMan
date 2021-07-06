@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="container">
+    <form [formGroup]="form">
+        <label for="fname">Technical Identification:</label>
+       <input type="text" formControlName="technicalIdentification" [ngClass]="{'is-invalid':form.get('technicalIdentification')?.touched && form.get('technicalIdentification')?.invalid}"   id="technicalIdentification" name="technicalIdentification" class="form-control">
+    
+       <div *ngIf="form.get('technicalIdentification')?.invalid && (form.get('technicalIdentification')?.dirty || form.get('technicalIdentification')?.touched)"
+           class="alert alert-danger">
+        <div *ngIf="form.get('technicalIdentification')?.errors?.required">
+          Techincal Id is required
+        </div>
+       </div>
+    
+        <label for="fname">Number of the week:</label>
+        <input type="week" formControlName="numberWeek" [ngClass]="{'is-invalid':form.get('numberWeek')?.touched && form.get('numberWeek')?.invalid}" id="numberWeek" name="numberWeek" class="form-control">
+          
+        <div *ngIf="form.get('numberWeek')?.invalid && (form.get('numberWeek')?.dirty || form.get('numberWeek')?.touched)"
+            class="alert alert-danger">
+            <div *ngIf="form.get('numberWeek')?.errors?.required">
+                Number of the week is required
+            </div>
+          </div><br>
+
+     <button type="button" [disabled]="form.invalid" (click)="calculate()" class="btn btn-primary">Calculate</button><br><br>
+      
+      </form>
+    
+      <div *ngFor="let arra of array">
+      <div  class="alert alert-primary" role="alert">
+            Horas normales: {{arra[0]}}<br>
+            Horas nocturnas: {{arra[1]}}<br>
+            Horas Dominicales: {{arra[2]}}<br>
+            Horas normales extra: {{arra[3]}}<br>
+            Horas nocturnas extra: {{arra[4]}}<br>
+            Horas Dominicales extra: {{arra[5]}}
+        </div>
+     
+    </div>
+    </div>
