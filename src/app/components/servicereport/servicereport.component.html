@@ -1,0 +1,50 @@
+<app-header></app-header><br>
+<div class="container">
+<form [formGroup]="forms">
+    <label for="fname">Technical Identification:</label>
+   <input type="text" formControlName="technicalIdentification" [ngClass]="{'is-invalid':forms.get('technicalIdentification')?.touched && forms.get('technicalIdentification')?.invalid}"   id="technicalIdentification" name="technicalIdentification" class="form-control">
+
+   <div *ngIf="forms.get('technicalIdentification')?.invalid && (forms.get('technicalIdentification')?.dirty || forms.get('technicalIdentification')?.touched)"
+       class="alert alert-danger">
+    <div *ngIf="forms.get('technicalIdentification')?.errors?.required">
+      Techincal Id is required
+    </div>
+   </div>
+
+    <label for="fname">Service Identification:</label>
+    <input type="text" formControlName="serviceIdentification" [ngClass]="{'is-invalid':forms.get('serviceIdentification')?.touched && forms.get('serviceIdentification')?.invalid}" id="serviceIdentification" name="serviceIdentification" class="form-control">
+      
+    <div *ngIf="forms.get('serviceIdentification')?.invalid && (forms.get('serviceIdentification')?.dirty || forms.get('serviceIdentification')?.touched)"
+        class="alert alert-danger">
+        <div *ngIf="forms.get('serviceIdentification')?.errors?.required">
+          Service Id is required
+        </div>
+      </div>
+
+    <label for="fname">Start Date:</label>
+   <input type="datetime-local" formControlName="startDate" [ngClass]="{'is-invalid':forms.get('startDate')?.touched && forms.get('startDate')?.invalid}" id="startDate" name="startDate" class="form-control">
+ 
+   <div *ngIf="forms.get('startDate')?.invalid && (forms.get('startDate')?.dirty || forms.get('startDate')?.touched)"
+   class="alert alert-danger">
+   <div *ngIf="forms.get('startDate')?.errors?.required">
+     Start date is required
+   </div>
+ </div>
+
+
+    <label for="fname">Finish Date:</label>
+    <input type="datetime-local" formControlName="finishDate" [ngClass]="{'is-invalid':forms.get('finishDate')?.touched && forms.get('finishDate')?.invalid}"  id="finishDate" name="finishDate" class="form-control">
+
+    <div *ngIf="forms.get('finishDate')?.invalid && (forms.get('finishDate')?.dirty || forms.get('finishDate')?.touched)"
+      class="alert alert-danger">
+      <div *ngIf="forms.get('finishDate')?.errors?.required">
+        Start date is required
+      </div>
+    </div><br>
+
+
+    <button type="button" style="position:fixed" [disabled]="forms.invalid" (click)="addReport()" class="btn btn-primary">Add</button>
+  
+  </form>
+
+</div>
