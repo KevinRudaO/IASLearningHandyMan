@@ -33,16 +33,14 @@ export class CalculathoursComponent implements OnInit {
             }
 
     
-    var json = JSON.parse(`{"techId": "${this.form.get('technicalIdentification')?.value}",
-                                    "anio": "${anio}"}`)
-                                    console.log(json);
+    var json = JSON.parse(`{"techId": "${this.form.get('technicalIdentification')?.value}","anio": "${anio}"}`);
                                     
                                     
     this.service.calculatehours(json).subscribe(response =>{
-     console.log(response);
+     
       fechas= Object.values(response);
       
-     arr.push(this.form.get("numberWeek")?.value);
+     arr.push(this.form.get("numberWeek")?.value);// "2021-W26"
 
       for(let i=0;i<fechas[0].length; i++){
       
@@ -51,11 +49,7 @@ export class CalculathoursComponent implements OnInit {
        }
        console.log(arr);
        
-       
-            
-            
-
-      this.service.calculate(arr).subscribe(data=>{
+       this.service.calculate(arr).subscribe(data=>{
         console.log(data);
         if(data==null){
           alert("No existen registros");

@@ -11,7 +11,6 @@ export class ComponentReportServiceService {
   constructor(private http:HttpClient) { }
 
   addServiceReport(ServiceReport:serviceReport){
-
     return this.http.post<serviceReport>(this.url,ServiceReport);
   }
 
