@@ -40,7 +40,7 @@ export class CalculathoursComponent implements OnInit {
      
       fechas= Object.values(response);
       
-     arr.push(this.form.get("numberWeek")?.value);// "2021-W26"
+     arr.push(this.form.get("numberWeek")?.value);// "2021-W26 "
 
       for(let i=0;i<fechas[0].length; i++){
       
